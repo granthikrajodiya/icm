@@ -32,10 +32,4 @@ composer.lock
 public/index.php
 index.php
 .htaccess
-/public
-/storage
-/app
-/bootstrap
-/database
-/config
-.env.example
+

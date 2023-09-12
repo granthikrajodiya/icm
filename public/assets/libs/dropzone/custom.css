@@ -1,0 +1,81 @@
+/* Dropzone tanent file access */
+
+.dropzone .dz-preview .dz-details .dz-size {
+    font-size: 16px !important;
+    margin-bottom: 0.25rem !important;
+}
+.dropzone .dz-preview .dz-details .dz-filename {
+    font-size: 16px;
+}
+.dropzone .dz-preview .dz-details {
+    margin-left: 75px !important;
+    text-align: left !important;
+    padding: 0 !important;
+    min-width: 70%;
+    max-width: 70%;
+}
+.dropzone .dz-preview:hover .dz-image img {
+    transform: unset !important;
+    -webkit-filter: unset !important; 
+    filter: unset !important;
+}
+.dropzone .dz-preview.dz-file-preview .dz-image{
+    background: unset !important;
+    border-radius: unset !important;
+}
+.dropzone .dz-preview .dz-image{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: unset !important;
+}
+.dz-details {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 10px !important;
+}
+.dropzone .dz-preview .dz-details{
+    opacity: 1 !important;
+    color: #3C4858 !important;
+}
+.dropzone .dz-preview .dz-progress {
+    left:12% !important;
+    margin-top: 10px !important;
+     margin-left:0 !important; 
+}
+.dropzone .dz-preview.dz-complete .dz-progress{
+    opacity: 1 !important;
+}
+
+.dz-preview-h{
+    width: 90% !important;
+    min-height: unset !important;
+}
+
+.dz-preview .dz-image-preview,.dz-file-preview{
+    width: 90% !important;
+}
+
+.dropzone{
+    min-height: unset !important;
+}
+
+.dropzone .dz-message{
+    margin:  unset !important;
+    padding-top: 2rem !important;
+    padding-bottom: unset !important;
+}
+
+.dropzone .dz-preview .dz-image img{
+    width: 100%;
+}
+
+.dropzone .dz-preview .dz-remove{
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.dropzone .dz-preview{
+    margin: unset !important; 
+    min-height: 80px;
+}

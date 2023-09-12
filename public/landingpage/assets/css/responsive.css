@@ -1,0 +1,144 @@
+/*================================================================================================*/
+/*=================[                                                            ]=================*/
+/*=================[    !!!!!!!!   CSS CREATED BY RAJODIYA INFOTECH  !!!!!!!!   ]=================*/
+/*=================[                                                            ]=================*/
+/*================================================================================================*/
+ 
+@media (min-width:992px) {
+  .header-style-one .main-navigationbar .menu-items-col .main-nav{
+    display: flex;
+    align-items: center;
+  } 
+  .desk-only {
+    display: block !important;
+  }
+  .mobile-only {
+    display: none !important;
+  }  
+
+}    
+
+@media screen and (max-width:1260px){   
+  .testimonials-card .quote-icon {
+    width: 90px;
+}
+}
+@media screen and (max-width:1199px){
+  :root { 
+    --h1: normal 700 40px/1 var(--second-font);
+    --h2: normal 700 32px/1 var(--second-font);
+    --h3: normal 700 26px/1 var(--second-font); 
+    --h4: normal 700 20px/1 var(--second-font);
+    --h5: normal 700 18px/1 var(--second-font);
+    --h6: normal 700 16px/1 var(--second-font);
+  } 
+  
+}
+@media screen and (max-width:991px){
+  :root { 
+    --h1: normal 700 36px/1 var(--second-font); 
+    --common-text: normal 400 14px/1.4 var(--first-font);
+  } 
+  .main-home-first-section{
+    padding: 80px 0 365px;
+  }
+  .testimonials-card .quote-icon {
+    width: 70px;
+  }
+  .testimonial .testimonial-section{
+    padding: 0 100px 5%;
+  }
+  .padding-top {
+    padding-top: 40px;
+  }
+  .padding-bottom {
+    padding-bottom: 40px;
+  }
+  
+}
+@media screen and (max-width:767px){
+  .logo-col{
+    max-width: 190px;
+  }
+  .menu-right .btn{
+    padding: 11px 15px;
+  }
+  .home-banner-content-inner img{
+    max-width: 200px;
+  }
+  .home-banner-content-inner .h1{
+    margin-bottom: 26px;
+  }
+  .main-home-first-section {
+    padding: 43px 0 257px;
+  }
+  .dashboard-preview-section {
+    margin-top: -216px; 
+  }
+  .pro-list-wrap h3{
+    padding-left: 0;
+  }
+  .user-love-right{
+    margin-top: 20px;
+  }
+  .testimonial .testimonial-section {
+    padding: 0 50px 5%;
+  }
+  .slick-slider .slick-arrow{
+    width: 35px;
+    height: 35px;
+  }
+  .ft-logo-col{
+    margin: 30px auto 30px;
+  }
+  .btn{
+    padding: 11px 25px;
+    font-size: 14px;
+  }
+  .user-forever-section .section-back{
+    display: none;
+  }
+  .user-forever-section{
+    background: #F2F2F2;
+    padding: 40px 0;
+  }
+  .process-section{
+    margin-top: 0;
+  }
+  .footer-middle .footer-widget ul li a{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:575px){  
+  :root {  
+    --h2: normal 700 28px/1 var(--second-font);
+    --h3: normal 700 24px/1 var(--second-font); 
+    --h4: normal 700 22px/1 var(--second-font);
+    --h5: normal 700 20px/1 var(--second-font);
+  } 
+  .navigationbar-row{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .logo-col{
+    max-width: 180px;
+    margin-bottom: 15px;
+  }
+  .header-info-right{
+    padding-left: 0;
+    width: 100%;
+  }
+  .menu-right{
+    justify-content: space-between;
+  }
+
+  .testimonial .testimonial-section {
+    padding: 40px 0 40px;
+  }
+  .testimonial .top-shape{
+    display: none;
+  }
+  
+} 
+
+
