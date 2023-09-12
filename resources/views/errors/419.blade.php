@@ -1,0 +1,32 @@
+@extends('errors::minimal')
+
+@section('title', __('Server Error'))
+
+@section('content')
+    <div class="min-vh-100 h-100vh py-5 d-flex align-items-center bg-gradient-info">
+        <div class="bg-absolute-cover vh-100 overflow-hidden d-none d-md-block">
+            <figure class="w-100">
+                <img alt="Image placeholder" src="{{ asset('assets/img/svg/backgrounds/bg-4.svg') }}" class="svg-inject">
+            </figure>
+        </div>
+        <div class="container position-relative zindex-100">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <h6 class="display-1 mb-3 font-weight-600 text-white">{{__('Expired page')}}</h6>
+                    <p class="lead text-lg text-white mb-5">
+                        {{__("Expired page, Please login again to continue with your access.")}}
+                    </p>
+                    <a href="{{ (tenant('tenant_id')) ? route('login',tenant('tenant_id')) : url('/login') }}" class="btn btn-white btn-icon rounded-pill hover-translate-y-n3">
+                        <span class="btn-inner--icon"><i class="fas fa-home"></i></span>
+                        <span class="btn-inner--text">{{__('Go to login page')}}</span>
+                    </a>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <figure class="w-100">
+                        <img alt="Image placeholder" src="{{ asset('assets/img/svg/illustrations/instruction-manual.svg') }}" class="svg-inject opacity-8 img-fluid" style="height: 500px;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

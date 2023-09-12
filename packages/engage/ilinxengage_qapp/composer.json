@@ -1,0 +1,27 @@
+{
+    "name": "engage/ilinxengage_qapp",
+    "description": "Sample package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "ILINX",
+        "email": "ilinx@imagesourec.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+        "Engage\\Ilinxengage_qapp\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+        "providers": [
+            "Engage\\Ilinxengage_qapp\\QappServiceProvider"
+        ]
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <server name="APP_KEY" value="base64:wQFAmJrx3nLiCEc8Q6NKpfqhr3N7FFOZ9fqWa2Yvaj8="/>
+        <server name="APP_ENV" value="testing"/>
+        <server name="BCRYPT_ROUNDS" value="4"/>
+        <server name="CACHE_DRIVER" value="array"/>
+        <server name="QUEUE_CONNECTION" value="sync"/>
+        <server name="SESSION_DRIVER" value="array"/>
+        <env name="DB_CONNECTION" value="sqlsrv"/>
+        <env name="DB_USERNAME" value="SA"/>
+        <env name="DB_PASSWORD" value="ImageSourcePassword@"/>
+        <env name="DB_DATABASE" value="model"/>
+        <env name="DB_HOST" value="sqlsrv"/>
+        <env name="DB_PORT" value="1433"/>
+    </php>
+</phpunit>

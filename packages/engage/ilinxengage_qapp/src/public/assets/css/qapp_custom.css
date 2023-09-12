@@ -1,0 +1,7 @@
+.form-builder-dialog{
+    z-index: 9999999 !important;
+}
+
+.form-wrap.form-builder .frmb{
+    min-height: 602px !important;
+}

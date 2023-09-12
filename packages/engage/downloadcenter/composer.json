@@ -1,0 +1,28 @@
+{
+    "name": "engage/downloadcenter",
+    "description": "Downloadcenter package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "ILINX",
+        "email": "ilinx@imagesourec.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Engage\\Downloadcenter\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Engage\\Downloadcenter\\DownloadcenterServiceProvider"
+            ]
+        }
+    }
+}
