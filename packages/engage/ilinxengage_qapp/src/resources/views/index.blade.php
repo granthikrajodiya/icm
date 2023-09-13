@@ -60,16 +60,14 @@
                                                     data-title="{{ __('Edit Quick App') }}">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="action-item text-danger px-2"
-                                                    data-confirm="{{ __('Are You Sure?') }}|{{ __('This action can not be undone. Do you want to continue?') }}"
-                                                    data-confirm-yes="document.getElementById('delete-faq-{{ $qapp->id }}').submit();">
+
+                                                <a href="#" class="action-item text-danger px-2" data-url="{{ route('qapp.destroyqapp', [tenant('tenant_id'), $qapp->id]) }}"
+                                                    data-ajax-popup="true" data-size="md"
+                                                    data-title="{{ __('Are You Sure?') }}">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
+
                                             </div>
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['qapp.destroy', [tenant('tenant_id'), $qapp->id]],
-                                                'id' => 'delete-faq-' . $qapp->id,
-                                            ]) !!}
-                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                 @endforeach

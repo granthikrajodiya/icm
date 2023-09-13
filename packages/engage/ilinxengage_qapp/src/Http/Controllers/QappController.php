@@ -31,7 +31,7 @@ class QappController extends Controller
         $qapp->description = $request->description;
         $qapp->save();
 
-        return redirect()->back()->with('success', __('Qapp Add Successfully!'));
+        return redirect()->back()->with('success', __('Qapp Add Successfully!'))->with('tab-status', 'tabs-qapp-configuration');
     }
 
 
@@ -158,11 +158,22 @@ class QappController extends Controller
         );
     }
 
+    public function destroyQapp($id){
+        $qapp = QappDefinition::find($id);
+        return view('engage_ilinxengage_qapp::delete', compact('qapp'));
+    }
 
-    public function destroy($id){
+    public function deleteQapp(Request $request, $id){
+
+        if($request->data_delete == 1){
+            $tableName = 'qapp_data_'.$id;
+            $qurie = "DROP TABLE $tableName";
+            DB::statement($qurie);
+        }
+
         $qapp = QappDefinition::find($id);
         $qapp->delete();
 
-        return redirect()->back()->with('success', __('Qapp app successfully deleted!'));
+        return redirect()->back()->with('success', __('Qapp app successfully deleted!'))->with('tab-status', 'tabs-qapp-configuration');
     }
 }

@@ -22,6 +22,9 @@ Route::group([
 
 
     Route::post('/qapp/store', [QappController::class, 'storeQapp'])->name('qapp.store')->middleware(['auth', 'two-factor.auth', 'XSS']);
+    Route::get('/qapp/destroyqapp/{id}', [QappController::class, 'destroyQapp'])->name('qapp.destroyqapp')->middleware(['auth', 'two-factor.auth', 'XSS']);
+    Route::post('/qapp/delete/{id}', [QappController::class, 'deleteQapp'])->name('qapp.delete')->middleware(['auth', 'two-factor.auth', 'XSS']);
+
     Route::post('/qapp/properties/{id}', [QappController::class, 'storeProperties'])->name('qapp.properties')->middleware(['auth', 'two-factor.auth', 'XSS']);
     Route::post('/qapp/designer', [QappController::class, 'storeDesigner'])->name('qapp.designer')->middleware(['auth', 'two-factor.auth', 'XSS']);
     Route::post('/qapp/presentation/{id}', [QappController::class, 'storePresentation'])->name('qapp.presentation')->middleware(['auth', 'two-factor.auth', 'XSS']);
