@@ -75,10 +75,11 @@ class QappController extends Controller
 
     public function storeDesigner(Request $request) {
 
+        $requestJson = json_decode($request->json, true);
         $tableName = 'qapp_data_'.$request->qappId;
 
         if (Schema::hasTable($tableName)) {
-            foreach (json_decode($request->json, true) as $key => $value) {
+            foreach ($requestJson as $key => $value) {
 
                 if($value['type'] == 'number'){
                     $type = 'DECIMAL(18,2)';
@@ -96,15 +97,20 @@ class QappController extends Controller
                     $type = 'VARCHAR(255)';
                 }
 
+                if(isset($value['name']) && $value['name']){
 
-                if (!Schema::hasColumn($tableName, $value['name'])) {
-                    $qurie = "ALTER TABLE ".$tableName." ADD ".$value["name"]." VARCHAR(255)";
-                    DB::statement($qurie);
+                    $fieldName = str_replace("-","_",$value['name']);
+                    $requestJson[$key]['name'] = $fieldName;
+                    if ($fieldName && !Schema::hasColumn($tableName, $fieldName)) {
+                        $qurie = "ALTER TABLE ".$tableName." ADD ".$value["name"]." VARCHAR(255)";
+                        DB::statement($qurie);
+                    }
                 }
+
             }
-        } else {
+        }else {
             $quries='';
-            foreach (json_decode($request->json, true) as $key => $value) {
+            foreach ($requestJson as $key => $value) {
                 if($value['type'] == 'number'){
                     $type = 'DECIMAL(18,2)';
                 }
@@ -120,15 +126,17 @@ class QappController extends Controller
                 else{
                     $type = 'VARCHAR(255)';
                 }
-                    $quries .= $value['name'].' '.$type.',';
+                if(isset($value['name']) && $value['name']){
+                    $fieldName = str_replace("-","_",$value['name']);
+                    $requestJson[$key]['name'] = $fieldName;
+                    $quries .= $fieldName.' '.$type.',';
+                }
             }
             $qurry = DB::statement("CREATE TABLE $tableName (id INT AUTO_INCREMENT PRIMARY KEY,".$quries."created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)");
         }
 
-
-
         $qapp = QappDefinition::where('tenant_id', \Auth::user()->tenant_id)->where('id', $request->qappId)->first();
-        $qapp->form_json = $request->json;
+        $qapp->form_json = json_encode($requestJson);
         $qapp->save();
 
         return response()->json(
@@ -167,8 +175,11 @@ class QappController extends Controller
 
         if($request->data_delete == 1){
             $tableName = 'qapp_data_'.$id;
-            $qurie = "DROP TABLE $tableName";
-            DB::statement($qurie);
+
+            if (Schema::hasTable($tableName)) {
+                $qurie = "DROP TABLE $tableName";
+                DB::statement($qurie);
+            }
         }
 
         $qapp = QappDefinition::find($id);
